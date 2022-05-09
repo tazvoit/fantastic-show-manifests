@@ -1,22 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: leaderboard
+  name: fantastic-show
 spec:
   selector:
-    app: leaderboard
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: web
-spec:
-  selector:
-    app: web
+    app: fantastic-show
   ports:
     - protocol: TCP
       port: 80
@@ -25,11 +13,11 @@ spec:
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: web
+  name: fantastic-show
 spec:
   to:
     kind: Service
-    name: web
+    name: fantastic-show
     weight: 100
   port:
     targetPort: 8080
