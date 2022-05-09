@@ -1,39 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: fantastic-show
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      app: fantastic-show
   template:
     metadata:
       labels:
-        app: web
+        app: fantastic-show
     spec:
       containers:
-        - name: web
-          image: docker.io/tazvoit/web:120
-          ports:
-          - containerPort: 8080
----
-apiVersion : apps/v1
-kind: Deployment
-metadata:
-  name: leaderboard
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: leaderboard
-  template:
-    metadata:
-      labels:
-        app: leaderboard
-    spec:
-      containers:
-        - name: leaderboard
-          image: docker.io/tazvoit/leaderboard:120
+        - name: fantastic-show
+          image: docker.io/tazvoit/fantastic-show:138
           ports:
           - containerPort: 8080
